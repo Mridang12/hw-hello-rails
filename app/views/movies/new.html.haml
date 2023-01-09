@@ -1,0 +1,20 @@
+%h1 Add new movie to RottenPotatoes
+%br 
+%br
+= form_for :movie, :url => {:controller => 'movies', :action => 'create'} do |f|
+  %p
+    = f.label :title
+    = f.text_field :title
+  %p
+    = f.label :rating
+    = f.select :rating, options_for_select([['G'], ['R'], ['U']])
+  %p
+    = f.label :description
+    = f.text_field :description
+
+  %p
+    = f.label :release_date
+    = f.date_select :release_date
+
+  %p
+    = f.submit

@@ -1,0 +1,20 @@
+%h1 Edit  movie to RottenPotatoes
+%br 
+%br
+= form_for @movie, url: movie_path(@movie), :method => :put do |f|
+  %p
+    = f.label :title
+    = f.text_field :title, value: @movie.title
+  %p
+    = f.label :rating
+    = f.select :rating, options_for_select([['G'], ['R'], ['U']]), selected: @movie.rating
+  %p
+    = f.label :description
+    = f.text_field :description, value: @movie.description
+
+  %p
+    = f.label :release_date
+    = f.date_select :release_date, selected: @movie.release_date
+
+  %p
+    = f.submit

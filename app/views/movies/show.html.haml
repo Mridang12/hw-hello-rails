@@ -1,0 +1,16 @@
+%h1 #{@movie.title} details 
+- if @movie.rating
+    %br
+    Rating : #{@movie.rating}
+- if @movie.description
+    %br
+    Description : #{@movie.description}
+- if @movie.release_date
+    %br
+    Release Date : #{@movie.release_date}
+
+%br
+= link_to 'Edit Movie', edit_movie_path(@movie)
+
+%br
+= link_to 'Delete Movie', movie_path(@movie), method: :delete, data: { confirm: 'Are you sure you want to delete this user?' }
